@@ -59,3 +59,13 @@ sudo apt install php8.3 libapache2-mod-php8.3 php8.3-cli php8.3-common
 
 sudo apt install php8.3-pgsql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip php8.3-gd
 ```
+
+
+## Проверим статус
+``
+systemctl status zabbix-server zabbix-agent apache2 | grep -B 3 Active:
+``
+![status](./img/Zabbix_status.png)
+
+проверяем web интерфейс
+![web_zabbix](./img/ZABBIX_INSTALL.png)
