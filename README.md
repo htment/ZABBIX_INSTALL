@@ -19,7 +19,7 @@ dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 
 # Уcтанавливаем Zbbix
 
-``apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent``
+``apt install zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent``
 
 #Создаем пользователя
 
@@ -69,3 +69,21 @@ systemctl status zabbix-server zabbix-agent apache2 | grep -B 3 Active:
 
 проверяем web интерфейс
 ![web_zabbix](./img/ZABBIX_INSTALL.png)
+
+Получаем ошибки 
+![zabbix_error](./img/Zabbix_errors.png)
+Исправляем 
+
+```
+  sudo apt update
+  sudo apt install php8.3 php8.3-cli
+  sudo apt install php8.3-bcmath
+```
+
+Подключаем БД
+
+![zabbix_connect](./img/Connect_to_bd.png)
+
+учтанавливаем
+
+![zabbix_connect](./img/zabbix_web_install.png)
