@@ -87,3 +87,5 @@ systemctl status zabbix-server zabbix-agent apache2 | grep -B 3 Active:
 учтанавливаем
 
 ![zabbix_connect](./img/zabbix_web_install.png)
+
+![zabbix_connect](./img/install_exec.png)
