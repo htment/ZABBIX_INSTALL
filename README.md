@@ -55,9 +55,19 @@ e. Запустите процессы Zabbix сервера и агента
 ```
 wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
 
+echo "deb https://packages.sury.org/php/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/php.list
+
+wget -qO - https://packages.sury.org/php/apt.gpg | sudo tee /etc/apt/trusted.gpg.d/php.gpg
+
+sudo apt update
+
 sudo apt install php8.3 libapache2-mod-php8.3 php8.3-cli php8.3-common
 
 sudo apt install php8.3-pgsql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip php8.3-gd
+
+sudo apt install php8.3-pgsql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip php8.3-gd
+
+
 ```
 
 
@@ -89,3 +99,15 @@ systemctl status zabbix-server zabbix-agent apache2 | grep -B 3 Active:
 ![zabbix_connect](./img/zabbix_web_install.png)
 
 ![zabbix_connect](./img/install_exec.png)
+
+Сброс пароля:
+```
+sudo -u postgres psql
+\c zabbix
+
+#пароль zabbix
+
+UPDATE users SET passwd = '$2a$10$ZXIvHAEP2ZM.dLXTm6uPHOMVlARXX7cqjbhM6Fn0cANzkCQBWpMrS' WHERE username = 'Admin';
+\q
+sudo systemctl restart zabbix-server
+```
