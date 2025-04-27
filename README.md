@@ -111,3 +111,29 @@ UPDATE users SET passwd = '$2a$10$ZXIvHAEP2ZM.dLXTm6uPHOMVlARXX7cqjbhM6Fn0cANzkC
 \q
 sudo systemctl restart zabbix-server
 ```
+
+![zabbix_auth](./img/zabbix_autorizacion.png)
+
+
+### Подключаем агент
+
+``sudo nano /etc/zabbix/zabbix_agentd.conf``
+
+![zabbix_agent_conf](./img/zabbix_agent_conf.png)
+
+### Настроим хосты
+
+![hosts](img/zabbix_hosts.png)
+
+![config](img/zabbix_agent_conf.png)
+
+![Last_data](img/Last_data.png)
+
+![gaph](img/Graph.png)
+
+Установим и настроим zabbix-agent на windows
+![alt text](img/windows_host.png) 
+
+Свободное место на диске C:
+
+![free](img/Free_space_disk_c.png)
